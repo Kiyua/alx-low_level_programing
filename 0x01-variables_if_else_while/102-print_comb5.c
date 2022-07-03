@@ -16,17 +16,20 @@ int main(void)
 		{
 			for (c = a; c <= '9'; c++)
 			{
-				for (d = b + 1; d <= '9'; d++)
+				for (d = b; d <= '9'; d++)
 				{
-					putchar(a);
-					putchar(b);
-					putchar(' ');
-					putchar(c);
-					putchar(d);
-					if (a != '9' || b != '8' || c != '9' || d != '9')
+					if (a != c || b != d)
 					{
-						putchar(',');
+						putchar(a);
+						putchar(b);
 						putchar(' ');
+						putchar(c);
+						putchar(d);
+						if (a != '9' || b != '8' || c != '9' || d != '9')
+						{
+							putchar(',');
+							putchar(' ');
+						}
 					}
 				}
 			}
