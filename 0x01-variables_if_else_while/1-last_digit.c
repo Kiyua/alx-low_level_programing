@@ -5,7 +5,8 @@
 /**
  * main - Entry point
  *
- * print if a random number's last digit is greater than 5 or less than 6 or is 0
+ * print if a random number's last digit is greater than 5 
+ * or less than 6 or is 0
  * Return: Always 0 (Success)
  */
 int main(void)
@@ -26,7 +27,7 @@ int main(void)
 	}
 	else
 	{
-		printf("Last digit od=f %d is %d and is zero\n", n, d);
+		printf("Last digit of %d is %d and is zero\n", n, d);
 	}
 	return (0);
 }
