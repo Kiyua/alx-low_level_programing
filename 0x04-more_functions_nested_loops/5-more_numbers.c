@@ -15,6 +15,7 @@ void more_numbers(void)
 		for (c = 0; c <= 14; c++)
 		{
 			int d;
+
 			d = c % 10;
 			if (c >= 10)
 			{
