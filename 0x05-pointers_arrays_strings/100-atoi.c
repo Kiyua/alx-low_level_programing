@@ -1,4 +1,5 @@
 #include "main.h"
+#include <limits.h>
 
 /**
  * _atoi - func
@@ -8,8 +9,9 @@
  */
 int _atoi(char *s)
 {
-	int n, sign;
+	int n, sign, max;
 
+	max = INT_MAX / 10;
 	n = 0;
 	sign = 1;
 
@@ -21,6 +23,14 @@ int _atoi(char *s)
 		}
 		else if (*s >= '0' && *s <= '9')
 		{
+			if (n > max || (n == max && *s >= '8'))
+			{
+				if (sign == -1)
+				{
+					return (INT_MIN);
+				}
+				return (INT_MAX);
+			}
 			n = (n * 10) + (*s - '0');
 		}
 		else if (n > 0)
@@ -29,6 +39,5 @@ int _atoi(char *s)
 		}
 		s++;
 	}
-
 	return (sign * n);
 }
