@@ -17,6 +17,18 @@ int _palindrome(char *front, char *back)
 }
 
 /**
+ * end - helper func
+ * @s: char
+ * Return: char
+ */
+char *end(char *s)
+{
+	if (*s == '\0')
+		return (s);
+	return (end(s + 1));
+}
+
+/**
  * is_palindrome - func
  * @s: char
  * Return: int
@@ -25,9 +37,7 @@ int is_palindrome(char *s)
 {
 	char *back;
 
-	back = s;
-	while (*back != '\0')
-		back++;
+	back = end(s);
 	back--;
 	return (_palindrome(s, back));
 }
