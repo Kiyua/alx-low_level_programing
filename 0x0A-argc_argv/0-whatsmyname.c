@@ -5,6 +5,7 @@
  *
  * @argc: int
  * @argv: pointer
+ * Return: int
  */
 
 int main(int argc, char *argv[])
