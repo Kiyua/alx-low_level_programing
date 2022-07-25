@@ -21,20 +21,23 @@ int main(int argc, char *argv[])
 
 	change = 0;
 	num = atoi(argv[1]);
+	
+	if (num > 0)
+	{
+		change = change + (num / 25);
+		num = num % 25;
 
-	change = change + (num / 25);
-	num = num % 25;
+		change = change + (num / 10);
+		num = num % 10;
 
-	change = change + (num / 10);
-	num = num % 10;
+		change = change + (num / 5);
+		num = num % 5;
 
-	change = change + (num / 5);
-	num = num % 5;
+		change = change + (num / 2);
+		num = num % 2;
 
-	change = change + (num / 2);
-	num = num % 2;
-
-	change = change + num;
+		change = change + num;
+	}
 	printf("%d\n", change);
 	return (0);
 }
