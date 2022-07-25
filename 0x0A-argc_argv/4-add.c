@@ -16,13 +16,17 @@ int main(int argc, char *argv[])
 	sum = 0;
 	for (i = 1; i < argc; i++)
 	{
-		int num;
+		char *d;
 
-		num = atoi(argv[i]);
-		if (num == 0 && *argv[i] != '0')
+		d = argv[i];
+		while (*d != '\0')
 		{
-			printf("Error\n");
-			return (1);
+			if (*d < '0' || *d > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
+			d++;
 		}
 
 		sum = sum + atoi(argv[i]);

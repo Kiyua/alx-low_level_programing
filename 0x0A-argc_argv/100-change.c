@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
 	change = 0;
 	num = atoi(argv[1]);
-	
+
 	if (num > 0)
 	{
 		change = change + (num / 25);
