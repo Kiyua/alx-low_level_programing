@@ -3,9 +3,8 @@
 #include <string.h>
 
 /**
- * create_array - func
- * @size: unsigned int
- * @c: char
+ * _strdup - func
+ * @str: char
  * Return: char
  */
 char *_strdup(char *str)
@@ -17,7 +16,7 @@ char *_strdup(char *str)
 		return (NULL);
 
 	size = strlen(str);
-	arr = malloc(size * sizeof(*arr));
+	arr = malloc((size + 1) * sizeof(*arr));
 	if (arr == NULL)
 		return (NULL);
 
