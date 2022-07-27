@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
 /**
@@ -19,7 +18,7 @@ char *argstostr(int ac, char **av)
 
 	total = 0;
 	for (i = 0; i < ac; i++)
-		total = total + strlen(av[i]) + 1;
+		total = total + strlen(av[i]);
 
 	str = malloc(total * sizeof(*str));
 	if (str == NULL)
