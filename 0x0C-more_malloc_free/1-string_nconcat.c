@@ -1,5 +1,21 @@
 #include <stdlib.h>
-#include <string.h>
+
+/**
+ * _strlen: func
+ * @c: char pointer
+ * Return: int
+ */
+int _strlen(char *c)
+{
+	int i = 0;
+
+	while(*c != '\0')
+	{
+		i++;
+		c++;
+	}
+	return (i);
+}
 
 /**
  * string_nconcat - func
@@ -13,8 +29,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int i, len1, len2, total;
 	char *p;
 
-	len1 = strlen(s1);
-	len2 = strlen(s2);
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
 	total = len1 + n + 1;
 	p = malloc(total * sizeof(*p));
 
