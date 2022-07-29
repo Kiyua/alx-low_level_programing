@@ -10,15 +10,19 @@
 */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i, len1, len2;
-	char *p = malloc(strlen(s1) + n + 1);
+	unsigned int i, len1, len2, total;
+	char *p;
 
 	len1 = strlen(s1);
 	len2 = strlen(s2);
-	p = strcpy(p, s1);
-	for (i = 0; i < len2 && i < n; i++)
-		p[len1 + i] = s2[i];
+	total = len1 + n + 1;
+	p = malloc(total * sizeof(*p));
 
-	p[len2 + n] = '\0';
+	for (i = 0; i < len1; i++)
+		p[i] = s1[i];
+	for (; i < len1 + len2 && i < total; i++)
+		p[i] = s2[i - len1];
+
+	p[i] = '\0';
 	return (p);
 }
