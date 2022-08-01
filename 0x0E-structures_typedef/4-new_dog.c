@@ -1,5 +1,6 @@
 #include "dog.h"
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * new_dog - func
@@ -17,9 +18,24 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (d == NULL)
 		return (NULL);
 
-	d->name = name;
+	d->name = malloc(sizeof(char) * (strlen(name) + 1));
+	if (d->name == NULL)
+	{
+		free(d);
+		return (NULL);
+	}
+
+	d->owner = malloc(sizeof(char) * (strlen(owner) + 1));
+	if (d->owner == NULL)
+	{
+		free(d->name);
+		free(d);
+		return (NULL);
+	}
+
+	d->name = strcpy(d->name, name);
 	d->age = age;
-	d->owner = owner;
+	d->owner = strcpy(d->owner, owner);
 
 	return (d);
 }
