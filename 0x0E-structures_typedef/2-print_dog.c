@@ -12,6 +12,8 @@ void print_dog(struct dog *d)
 	char *name, *owner;
 	float age;
 
+	if (!d)
+		return;
 	name = d->name;
 	if (name == NULL)
 		name = "(nil)";
