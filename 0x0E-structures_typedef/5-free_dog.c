@@ -8,8 +8,5 @@
  */
 void free_dog(struct dog *d)
 {
-	if (d)
-	{
-		free(d);
-	}
+	free(d);
 }
