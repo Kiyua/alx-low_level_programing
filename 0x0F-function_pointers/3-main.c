@@ -21,23 +21,31 @@ int main(int argc, char *argv[])
 	op2 = atoi(argv[3]);
 	op = argv[2];
 
-	if (op1 && op2 && (*op == '+' || *op == '-' || *op == '*'
-		|| *op == '/' || *op == '%'))
+	if (*op == '+' || *op == '-' || *op == '*'
+		|| *op == '/' || *op == '%')
 	{
 		int (*op_func)(int, int), res;
 
 		if ((*op == '/' || *op == '%') && op2 == 0)
 		{
 			printf("Error\n");
-			exit(98);
+			exit(100);
 		}
 
 		op_func = get_op_func(op);
+
+		op++;                                                                                                                                                              
+                if (*op != '\0')                                                                                                                                                   
+                {                                                                                                                                                                  
+                        printf("Error\n");                                                                                                                                         
+                        exit(99);                                                                                                                                                  
+                }    
+
 		res = op_func(op1, op2);
 		printf("%d\n", res);
 		return (0);
 	}
 
 	printf("Error\n");
-	exit(98);
+	exit(99);
 }
