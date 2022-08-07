@@ -4,55 +4,54 @@
 #include <string.h>
 
 /**
+ * print_str - func
+ * @str: char
+ */
+void print_str(char *str)
+{
+	if (str == NULL)
+		str = "(nil)";
+
+	printf("%s", str);
+}
+
+/**
  * print_all - func
  * @format: char
  */
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	int i, comma, len;
+	int i, len;
+	char c, f;
 
+	i = 0;
 	len = strlen(format);
 	va_start(args, format);
-	i = 0;
-	comma = 0;
+
 	while (i < len)
 	{
-		switch (format[i])
+		f = format[i];
+		switch (f)
 		{
 			case 'c':
 			{
-				char c = va_arg(args, int);
-
+				c = va_arg(args, int);
 				printf("%c", c);
-				comma = 1;
 				break;
 			}
 			case 'i':
-			{
 				printf("%d", va_arg(args, int));
-				comma = 1;
 				break;
-			}
 			case 'f':
-			{
 				printf("%f", va_arg(args, double));
-				comma = 1;
 				break;
-			}
 			case 's':
-			{
-				printf("%s", va_arg(args, char *));
-				comma = 1;
+				print_str(va_arg(args, char *));
 				break;
-			}
-			default:
-			{
-				comma = 0;
-			}
 		}
 		i++;
-		if (i < len && comma)
+		if (i < len && (f != 'c' || f != 'i' || f != 'f' || f != 's'))
 			printf(", ");
 	}
 	printf("\n");
