@@ -6,24 +6,28 @@
 /**
  * add_node - func that adds node to a list
  *
- * @h: list_t
+ * @head: list_t
+ * @str: str
  *
  * Return: list_t
  */
 list_t *add_node(list_t **head, const char *str)
 {
-	list_t *new = malloc(sizeof(list_t));
+	list_t *new;
 
+	new = malloc(sizeof(list_t));
 	if (new == NULL)
-	{
-		printf("ooops\n");
 		return (NULL);
-	}
 
 	new->str = strdup(str);
-	new->len = strlen(str);
+	if (new->str == NULL)
+	{
+		free(new);
+		return (NULL);
+	}
+	new->len = strlen(new->str);
 	new->next = *head;
+	*head = new;
 
-	print_list(new);
 	return (new);
 }
