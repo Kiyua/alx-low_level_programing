@@ -9,4 +9,4 @@ main:
 	mov	rax, 0
 	ret
 format:
-	db "Hello, Holberton", 13, 10, 0
+	db "Hello, Holberton", 10, 13, 0
