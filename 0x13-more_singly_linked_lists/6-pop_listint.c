@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
  * pop_listint - func
@@ -10,14 +11,17 @@
 int pop_listint(listint_t **head)
 {
 	int n;
-	listint_t *h = *head;
+	listint_t *h;
 
-	if (h == NULL)
+	if (head == NULL || *head == NULL)
 		return (0);
 
+	h = *head;
 	n = h->n;
-	h = h->next;
-	*head = h;
+	*head = h->next;
+
+	free(h);
+	h = NULL;
 
 	return (n);
 }
