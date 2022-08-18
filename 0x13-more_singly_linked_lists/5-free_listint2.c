@@ -2,27 +2,21 @@
 #include <stdlib.h>
 
 /**
- * free_listint_local - func
- *
- * @head: listint_t
- */
-void free_listint_local(listint_t *head)
-{
-	if (head != NULL)
-	{
-		free_listint_local(head->next);
-		free(head);
-	}
-}
-/**
  * free_listint2 - func
  *
  * @head: listint_t
  */
 void free_listint2(listint_t **head)
 {
-	if (*head != NULL)
-		free_listint_local(*head);
+	listint_t *temp;
 
-	head = NULL;
+	if (*head == NULL)
+		return;
+
+	while (*head != NULL)
+	{
+		temp = (*head)->next;
+		free(*head);
+		*head = temp;
+	}
 }
