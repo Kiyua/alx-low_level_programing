@@ -1,27 +1,17 @@
 #include "main.h"
 
 /**
- * print_iter - func
- * @n: unisgned long int
- */
-void print_iter(unsigned long int n)
-{
-	if (n > 0)
-	{
-		print_iter(n / 2);
-		_putchar('0' + (n % 2));
-	}
-}
-
-/**
  * print_binary - func
  *
  * @n: unsigned long int
  */
 void print_binary(unsigned long int n)
 {
-	if (n > 0)
-		print_iter(n);
+	if (n > 1)
+	{
+		print_binary(n / 2);
+		_putchar('0' + (n % 2));
+	}
 	else
-		_putchar('0');
+		_putchar('0' + n);
 }
